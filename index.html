@@ -45,73 +45,28 @@
             100% { background-position: 0% 50%; }
         }
 
-        body.interacted {
-            animation: gradientBG 8s ease infinite, pulse 5s infinite alternate;
-        }
-
-        @keyframes pulse {
-            0% { filter: brightness(100%); }
-            100% { filter: brightness(110%); }
-        }
-
         header {
             background-color: var(--header-bg);
             padding: 1.5rem 2rem;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             backdrop-filter: blur(5px);
-            transition: all 0.5s ease;
-        }
-
-        h1 {
-            margin: 0;
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            transition: all 0.5s ease;
-        }
-
-        header p {
-            margin: 0.5rem 0 1rem;
-            font-size: 1.1rem;
-            color: var(--text-color);
-            max-width: 600px;
-        }
-
-        nav {
-            display: flex;
-            gap: 1.5rem;
         }
 
         nav a {
-            text-decoration: none;
+            margin-left: 15px;
             color: var(--link-color);
+            text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
-            padding: 0.3rem 0;
-            position: relative;
         }
 
         nav a:hover {
             color: var(--secondary-color);
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--secondary-color);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
         main {
             padding: 2rem;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 2rem auto;
         }
 
@@ -121,13 +76,60 @@
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             backdrop-filter: blur(5px);
-            transition: all 0.5s ease;
+            margin-bottom: 2rem;
         }
 
-        section h2 {
+        h1, h2 {
             color: var(--primary-color);
-            margin-top: 0;
-            font-size: 1.8rem;
+        }
+
+        .intro {
+            text-align: center;
+        }
+
+        .cv-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .summary-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .skill-pill {
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .download-cv {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
         }
 
         footer {
@@ -135,72 +137,12 @@
             text-align: center;
             padding: 1.5rem;
             backdrop-filter: blur(5px);
-            transition: all 0.5s ease;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--header-bg);
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-color);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
-        }
-
-        .theme-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        .intro {
-            text-align: center;
-        }
-
-        .intro h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .intro p {
-            font-size: 1.2rem;
-            color: var(--text-color);
         }
     </style>
 </head>
 <body>
-    <button class="theme-toggle" aria-label="Toggle dark mode">
-        <svg class="theme-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 2V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 20V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M4.92993 4.92999L6.33993 6.33999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M17.6599 17.66L19.0699 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M2 12H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M20 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M6.33993 17.66L4.92993 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M19.0699 4.92999L17.6599 6.33999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span>Toggle Theme</span>
-    </button>
-    
     <header>
         <h1>Nicholas Kiai</h1>
-        <p>Recent Business Computing graduate with a focus on backend systems and custom Linux development.</p>
         <nav>
             <a href="index.html">Home</a>
             <a href="projects.html">Projects</a>
@@ -208,76 +150,44 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
+
     <main>
         <section class="intro">
             <h2>Welcome to My Portfolio</h2>
             <p>Explore my latest work and projects in backend development, Linux systems, and innovative solutions.</p>
         </section>
+
+        <section>
+            <h2>Professional Summary</h2>
+            <div class="cv-summary">
+                <div class="summary-card">
+                    <h3>Experience</h3>
+                    <p>ICT Intern at Judiciary - Thika Law Courts (May 2024 - Aug 2024)</p>
+                    <p>Developed hands-on experience in e-filing systems, network maintenance, and IT support services.</p>
+                </div>
+
+                <div class="summary-card">
+                    <h3>Education</h3>
+                    <p>BSc Business Computing at JKUAT (2021 - 2025)</p>
+                    <p>Specialized in backend systems, security, and custom OS development.</p>
+                </div>
+
+                <div class="summary-card">
+                    <h3>Key Skills</h3>
+                    <div class="skills-container">
+                        <span class="skill-pill">Python/Django</span>
+                        <span class="skill-pill">Linux Systems</span>
+                        <span class="skill-pill">Web Development</span>
+                        <span class="skill-pill">AWS</span>
+                        <span class="skill-pill">MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
     <footer>
-        <p>&copy; 2025 Nicholas Kiai</p>
+        <p>&copy; 2025 Nicholas Kiai. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.querySelector('.theme-toggle');
-        const currentTheme = localStorage.getItem('theme') || 'light';
-
-        if (currentTheme === 'dark') {
-            document.body.setAttribute('data-theme', 'dark');
-            themeToggle.innerHTML = `
-                <svg class="theme-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 12.79C20.8427 14.4922 20.2039 16.1144 19.1582 17.4668C18.1126 18.8192 16.7035 19.8458 15.0957 20.4265C13.4879 21.0073 11.748 21.1181 10.0795 20.7461C8.41102 20.3741 6.88299 19.5345 5.67422 18.3258C4.46545 17.117 3.62593 15.589 3.2539 13.9205C2.88187 12.252 2.99271 10.5121 3.57345 8.9043C4.15419 7.29651 5.18082 5.88737 6.53321 4.84175C7.8856 3.79614 9.5078 3.15731 11.21 3C10.2134 4.34827 9.73375 6.00945 9.85849 7.68141C9.98324 9.35338 10.7039 10.9251 11.8894 12.1106C13.0749 13.2961 14.6466 14.0168 16.3186 14.1415C17.9906 14.2663 19.6517 13.7866 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>Toggle Theme</span>
-            `;
-        }
-
-        themeToggle.addEventListener('click', () => {
-            let theme = 'light';
-            if (document.body.getAttribute('data-theme') !== 'dark') {
-                document.body.setAttribute('data-theme', 'dark');
-                theme = 'dark';
-                themeToggle.innerHTML = `
-                    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 2V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 20V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M4.92993 4.92999L6.33993 6.33999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M17.6599 17.66L19.0699 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 12H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M20 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M6.33993 17.66L4.92993 19.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M19.0699 4.92999L17.6599 6.33999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Toggle Theme</span>
-                `;
-            } else {
-                document.body.removeAttribute('data-theme');
-                themeToggle.innerHTML = `
-                    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 12.79C20.8427 14.4922 20.2039 16.1144 19.1582 17.4668C18.1126 18.8192 16.7035 19.8458 15.0957 20.4265C13.4879 21.0073 11.748 21.1181 10.0795 20.7461C8.41102 20.3741 6.88299 19.5345 5.67422 18.3258C4.46545 17.117 3.62593 15.589 3.2539 13.9205C2.88187 12.252 2.99271 10.5121 3.57345 8.9043C4.15419 7.29651 5.18082 5.88737 6.53321 4.84175C7.8856 3.79614 9.5078 3.15731 11.21 3C10.2134 4.34827 9.73375 6.00945 9.85849 7.68141C9.98324 9.35338 10.7039 10.9251 11.8894 12.1106C13.0749 13.2961 14.6466 14.0168 16.3186 14.1415C17.9906 14.2663 19.6517 13.7866 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Toggle Theme</span>
-                `;
-            }
-            localStorage.setItem('theme', theme);
-        });
-
-        // Enhanced background interaction
-        document.addEventListener('mousemove', function() {
-            document.body.classList.add('interacted');
-            
-            const x = event.clientX / window.innerWidth;
-            const y = event.clientY / window.innerHeight;
-            
-            document.body.style.setProperty('--primary-color', `hsl(${x * 360}, 70%, 60%)`);
-            document.body.style.setProperty('--secondary-color', `hsl(${y * 360}, 70%, 60%)`);
-        }, { once: true });
-
-        document.addEventListener('click', function() {
-            document.body.classList.add('interacted');
-        }, { once: true });
-    </script>
 </body>
 </html>
